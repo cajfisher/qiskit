@@ -30,7 +30,7 @@ subsequent sections:
     # Create a Quantum Circuit acting on the q register
     circuit = QuantumCircuit(2, 2)
 
-    # Add a H gate on qubit 0
+    # Add an H gate on qubit 0
     circuit.h(0)
 
     # Add a CX (CNOT) gate on control qubit 0 and target qubit 1
@@ -39,7 +39,7 @@ subsequent sections:
     # Map the quantum measurement to the classical bits
     circuit.measure([0,1], [0,1])
 
-    # compile the circuit down to low-level QASM instructions
+    # Compile the circuit down to low-level QASM instructions
     # supported by the backend (not needed for simple circuits)
     compiled_circuit = transpile(circuit, simulator)
 
@@ -51,7 +51,7 @@ subsequent sections:
 
     # Returns counts
     counts = result.get_counts(compiled_circuit)
-    print("\nTotal count for 00 and 11 are:",counts)
+    print("\nTotal counts for 00 and 11 are:", counts)
 
     # Draw the circuit
     circuit.draw()
@@ -92,9 +92,9 @@ The basic elements needed for your program are imported as follows:
 
 In more detail, the imports are
 
-- ``QuantumCircuit``: can be thought as the instructions of the quantum system.
+- ``QuantumCircuit``: can be thought of as the instructions for the quantum system.
   It holds all your quantum operations.
-- ``QasmSimulator``: is the Aer high performance circuit simulator.
+- ``QasmSimulator``: is the Aer high-performance circuit simulator.
 - ``plot_histogram``: creates histograms.
 
 
@@ -103,14 +103,14 @@ In more detail, the imports are
 Step 2 : Initialize Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Consider the next line of code
+Consider the next line of code:
 
 .. code-block:: python
 
     circuit = QuantumCircuit(2, 2)
 
-Here, you are initializing with 2 qubits in the zero state; with 2
-classical bits set to zero; and ``circuit`` is the quantum circuit.
+Here you are initializing a circuit with 2 qubits in the zero state; with 2
+classical bits set to zero; and ``circuit`` is the name assigned to the quantum circuit.
 
 Syntax:
 
@@ -166,18 +166,18 @@ which are applied earlier in the circuit show up farther to the left.
 
 The default backend for ``QuantumCircuit.draw()`` or ``qiskit.visualization.circuit_drawer()``
 is the text backend. However, depending on your local environment you may want to change
-these defaults to something better suited for your use case. This is done with the user
+these defaults to something better suited to your use case. This is done with the user
 config file.  By default the user config file should be located in
 ``~/.qiskit/settings.conf`` and is a ``.ini`` file.
 
-For example, a ``settings.conf`` file for setting a Matplotlib drawer is:
+For example, a ``settings.conf`` file for setting a Matplotlib drawer is
 
 .. code-block:: text
 
   [default]
   circuit_drawer = mpl
 
-You can use any of the valid circuit drawer backends as the value for this config, this includes
+You can use any of the valid circuit-drawer backends as the value for this config; this includes
 text, mpl, latex, and latex_source.
 
 
@@ -186,7 +186,7 @@ text, mpl, latex, and latex_source.
 Step 5 : Simulate the Experiment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Qiskit Aer is a high performance simulator framework for quantum circuits. It
+Qiskit Aer is a high-performance simulator framework for quantum circuits. It
 provides `several backends <apidoc/aer_provider.html>`__
 to achieve different simulation goals.
 
@@ -215,8 +215,8 @@ circuit will yield either the bit string 00 or 11.
 
 As expected, the output bit string is 00 approximately 50 percent of the time.
 The number of times the circuit is run can be specified via the ``shots``
-argument of the ``execute`` method. The number of shots of the simulation was
-set to be 1000 (the default is 1024).
+argument of the ``execute`` method. The number of shots in the above code was
+set to 1000 (the default is 1024).
 
 Once you have a ``result`` object, you can access the counts via the method
 ``get_counts(circuit)``. This gives you the aggregate outcomes of the
